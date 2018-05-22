@@ -1,0 +1,53 @@
+%!TEX root = ../main.tex
+
+\chapter{Literature Review}\label{cha:literature}
+
+% Brief 1 para intro
+\section{Deep Learning}\label{sec:deep_learning_lit}
+% section on history of deep learning up to recent cutting edge developments
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{./img/Wide_optima.png}
+    \caption{\cite{Keskar_Mudigere_Nocedal_Smelyanskiy_Tang_2016}}
+    \label{fig:wide_optima}
+\end{figure}
+
+
+\subsection{Recent Developments}\label{subsec:recent_improvements}
+In late 2017, Hinton outlined a method for training capsule based methods.
+This is something he'd been thinking about for years.
+It learns pose representations of objects.
+
+People are well aware that ensemble methods produce great results.
+Blah Blah outlined a method where models where saved periodically (Snapshot).
+The period was large enough such that the models performed better/worse in different areas.
+At prediction time they could be used as an ensemble.
+
+(FGE) Someone else then showed that making the cycles short was still pretty good.
+This is because because there exist connected paths of low loss between sufficiently different models, it is possible to travel along those paths in small steps and the models encountered along will be different enough to allow ensembling them with good results.
+This is much faster
+
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{./img/FGE.png}
+    \caption{\cite{Garipov_Izmailov_Podoprikhin_Vetrov_Wilson_2018}}
+    \label{fig:FGE_shortest_path}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{./img/SWA.png}
+    \caption{\cite{Izmailov_Podoprikhin_Garipov_Vetrov_Wilson_2018}}
+    \label{fig:SWA}
+\end{figure}
+
+This is all taking an ensemble in model space, what if we do it in weight space.
+We find that maintaining an average of the weights we encouter performs pretty well; it is better than snapshot and almost as good as FGE
+This is much quicker and less computationally expensive because we don't have to carry around several different models.
+
+\section{Deep Learning in Medicine}\label{deep_learning_medic_lit}
+% section on deep learning in medicine
+U-Net \cite{Ronneberger_Fischer_Brox_2015}
