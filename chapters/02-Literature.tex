@@ -6,10 +6,27 @@
 \section{Deep Learning}\label{sec:deep_learning_lit}
 % section on history of deep learning up to recent cutting edge developments
 
+Choose the correct learning rate, 
+
+Are saddle points the issue? \cite{Dauphin_de_Vries_Bengio_2015}
+
+No! says \cite{Goodfellow-et-al-2016} in the deep learning book (they prove will not get stuck)
+
+could use linear cyclical: \cite{Smith_2015}
+
+cosine annealing/restarts \cite{Loshchilov_Hutter_2016}
+
+Snapshots Ensemble: Train 1, get M for free \cite{Huang_Li_Pleiss_Liu_Hopcroft_Weinberger_2017}
+
+In \cite{Keskar_Mudigere_Nocedal_Smelyanskiy_Tang_2016} it is suggested that convergence to sharp minima leads to poor generalisation for deep learning.
+Figure \ref{fig:wide_optima} outlines a sharp minimum.
+Numerical evidence is then given that supports this view and several attempts to address the problem are presented.
+However, initial results suggest that whilst these strategies do lead to better generalisation, they still converge to sharp minima.
+
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{./img/Wide_optima.png}
-    \caption{\cite{Keskar_Mudigere_Nocedal_Smelyanskiy_Tang_2016}}
+    \caption{A Conceptual Sketch of Flat and Sharp Minima. The Y-axis indicates value of the loss function and the X-axis the variables (parameters) \cite{Keskar_Mudigere_Nocedal_Smelyanskiy_Tang_2016}}
     \label{fig:wide_optima}
 \end{figure}
 
