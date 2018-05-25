@@ -6,11 +6,14 @@
 \section{Deep Learning}\label{sec:deep_learning_lit}
 % section on history of deep learning up to recent cutting edge developments
 
-Choose the correct learning rate, 
+\subsection{Training Deep Neural Networks}\ref{subsec:training}
+Due to the size of deep neural networks, and the non-convexity of the parameters, finding good optima has always been a challenge.
+Stochastic gradient descent (SGD) has remained a popular strategy for researchers since the 80's although many optimisation algorithms are now used.
+These include Adam \cite{Kingma_Ba_2014}, ADADELTA \cite{Zeiler_2012} and AdaGrad \cite{Duchi_Hazan_Singer_2011}.
+For all of the optimisers mentioned, one of the main issues during training is choosing an appropriate learning rate.
 
-Are saddle points the issue? \cite{Dauphin_de_Vries_Bengio_2015}
-
-No! says \cite{Goodfellow-et-al-2016} in the deep learning book (they prove will not get stuck)
+It has been suggested by Dauphin et al. in \cite{Dauphin_de_Vries_Bengio_2015} that saddle points cause issues during training, not poor local optima.
+However, in The Deep Learning Book \cite{Goodfellow-et-al-2016}, Goodfellow et al. prove that although learning is slow around saddle points due to the flattness, gradient based optimisation algorithms are still able to escape.
 
 could use linear cyclical: \cite{Smith_2015}
 
