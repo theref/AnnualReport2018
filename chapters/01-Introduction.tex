@@ -3,16 +3,23 @@
 \chapter{Introduction}\label{cha:introduction}
 
 Deep Learning is a subclass of Machine Learning that has achieved state of the art results in a wide variety of domains.
+They were originally proposed by McCulloch and Pitts in 1943 as a model for how the brain processes information \cite{McCulloch_Pitts_1943}.
+In 1957, Rosenblatt created the Perceptron \cite{Rosenblatt_1957, Rosenblatt_1958}, however it was shown that it is impossible for these to learn the simple XOR function \cite{Minsky_Papert_1988}.
+In the 1980's neural networks became incredibly popular again.
+Rumelhart, Hinton and Williams wrote a particularly famous paper outlining the backpropagation algorithm for training networks of neuron-like units \cite{Rumelhart_Hinton_Williams_1986}.
+This algorithm remains at the core of all deep learning today.
 
-\section{Deep Learning}\label{sec:deep_learning_int}
-% overview of what deep learning actually is
+
+\section{Neural Networks}\label{sec:neural_network_int}
+A neural network is a collection of connected nodes (simplified versions of  biological neurons).
+A connection between two nodes (equivalent of a biological synapse) can transfer data from one node to the next.
+The signal processed between two nodes is a real valued number, and the output is a non-linear function of the sum of its inputs.
 
 \section{Problem Description}\label{sec:problem_description_int}
-% The Data
-% PET scan explanation
-% Ground Truth and what we hope to achieve
+%TODO introduction to deep learning in healthcare
 Detecting cancers in medical images is an important task in modern health care.
 
+\subsection{PET Scans}\label{subsec:pet_scan_int}
 Positron Emission Tomography (PET) scans are used to produce 3 Dimensional images of the human body and are often combined with CT scans (called PET-CT) or MRI scans (PET-MRI) in order to increase the level of detail.
 PET scans are particularly useful because they describe how certain parts of the body are functioning in addition to their physical appearance.
 PET scans are most commonly used for investigating confirmed cases of cancer to determine how far the cancer has spread and how well it's responding to treatment \cite{Radiology_ACR, PET_scan}.
@@ -25,6 +32,12 @@ The procedure is as follows:
     \item A computer then produces a 3D image in which hotspots indicate a large amount of tracer accumulation and therefore a high level of metabolic activity.
 \end{itemize}
 
+% TODO include some example pet scan images
+
+\subsection{Current Data}\label{subsec:current_data_intro}
+
+% %TODO explain The Data
+% %TODO explain Ground Truth and what we hope to achieve
 
 
 \section{Structure}\label{sec:structure}
