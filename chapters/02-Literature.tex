@@ -1,7 +1,7 @@
 %!TEX root = ../main.tex
 
 \chapter{Literature Review}\label{cha:literature}
-% Brief 1 para intro, maybe a lit review of lit reviews?
+
 Many extensive literature reviews and surveys have been written on the subject of deep learning.
 In 1987, Lippmann reviewed 6 of the most influential Neural Networks of the era \cite{Lippmann_1987}.
 More recently, an extensive Survey on Deep Learning in Medical Image Analysis was published \cite{Litjens_Kooi_Bejnordi_Setio_Ciompi_Ghafoorian_van_der_Laak_van_Ginneken_Sanchez_2017}.
@@ -27,11 +27,11 @@ In Figure \ref{fig:triangular_cyclical_learning_rate} two methods for cyclical l
 Leslie N. Smith propesed these in \cite{Smith_2015}.
 On the left plot min and max learning rate are kept the same, wheras on the right the difference is cut in half after each cycle.
 
-% TODO redo these figures myself
+
 \begin{figure}
     \centering
-    \includegraphics[width=0.4\textwidth]{./img/triangular.png}
-    \includegraphics[width=0.4\textwidth]{./img/triangular2.png}
+    \includegraphics[width=0.45\textwidth]{./img/triangular.png}
+    \includegraphics[width=0.45\textwidth]{./img/triangular2.png}
     \caption{Triangular and Triangular2 by Leslie N. Smith \cite{Smith_2015}.}
     \label{fig:triangular_cyclical_learning_rate}
 \end{figure}
@@ -42,6 +42,13 @@ Once the minimum is reached the learning resets to the maximum, there is no incr
 The authors also suggest making each cycle longer than the last by a constant factor they refer to as $T_{mult}$.
 
 %TODO figures for cosine lr
+\begin{figure}
+    \centering
+    \includegraphics[width=0.45\textwidth]{./img/tmul1.png}
+    \includegraphics[width=0.45\textwidth]{./img/tmul2.png}
+    \caption{Cosine Annealing with $T_{mult} = 1$ and $T_{mult} = 2$ by Loshchilov and Hutter \cite{Loshchilov_Hutter_2016}.}
+    \label{fig:cosine_annealing}
+\end{figure}
 
 % TODO snapshot ensambling
 People are well aware that ensemble methods produce great results.
