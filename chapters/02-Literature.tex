@@ -124,23 +124,37 @@ However, to obtain the superior performance of FGE or Snapshort Ensembling many 
 Also, predictions must be made by each model which are then averaged together, implying increased computations at test time.
 In \cite{Izmailov_Podoprikhin_Garipov_Vetrov_Wilson_2018}, a training method is outlined that avoids this issue whilst maintaining comparable performance.
 
-The methodologies discussed so far have been ensembles in model space; they use the predictions of several models to produce a final prediction.
+The methodologies discussed so far have been ensembles in model space; they use the predictions of several models to produce a final result.
 In \cite{Izmailov_Podoprikhin_Garipov_Vetrov_Wilson_2018}, weights are averaged instead of model predictions.
-This means that during training only two models need to be stored, and during testing only one model is used to make predictions.
-The result 
+It is shown that the Stochastic Weight Averaging (SWA) procedure finds much wider optima than SGD and approximates FGE.
+
+The method only requires two models to be stored.
+The first, $w_{SWA}$ maintains a running average of model weights.
+The second, $w$ traverses the weight space.
+The running average is then updated periodically by the rule:
+
+\begin{equation}
+    w_{SWA} \leftarrow \frac{w_{SWA} \cdot n_{models} + w}{n_{models} + 1}
+    \label{eq:swa}
+\end{equation}
+
+Where $n_{models}$ is the number of models captured so far.
+If using a cyclical learning rate, $w_{SWA}$ should be updated each time the learning rate reaches the minimum value.
+Otherwise it should be updated at the end of each epoch of training (or some multiple of epochs).
+
+In Figure \ref{fig:SWA} SWA and SGD are compared.
+The left panel shows three sampled FGE solutions and the corresponding SWA solution that has been averaged in weight space.
+The right panel shows the train loss surface and corresponding convergence of both SWA and SGD.
+They were started from the same initialisation of SGD after 125 epochs.
+The middle panel shows the exact same models but for the test error.
+It can be seen that whilst SGD performs better on the training set, SWA is able to generalise more.
 
 \begin{figure}[hbtp!]
     \centering
     \includegraphics[width=\textwidth]{./img/SWA.png}
-    \caption{\cite{Izmailov_Podoprikhin_Garipov_Vetrov_Wilson_2018}}
+    \caption{Illustrations of SWA and SGD with a Preactivation ResNet-110 on CIFAR-100. \cite{Izmailov_Podoprikhin_Garipov_Vetrov_Wilson_2018}}
     \label{fig:SWA}
 \end{figure}
-
-
-% TODO SWA
-
-We find that maintaining an average of the weights we encounter performs pretty well; it is better than snapshot and almost as good as FGE
-This is much quicker and less computationally expensive because we don't have to carry around several different models. \cite{Izmailov_Podoprikhin_Garipov_Vetrov_Wilson_2018}
 
 
 % TODO Capsule
