@@ -19,7 +19,7 @@ For example, three functions $f_1, f_2, f_3$ may be chained together such that $
 We refer to these networks as neural because they are inspired by the brain.
 A neural network is a collection of connected nodes (simplified versions of  biological neurons).
 A connection between two nodes (equivalent of a biological synapse) can transfer data from one node to the next.
-The signal processed between two nodes is a real valued number, and the output is a non-linear function of the sum of its inputs.
+The signal processed between two nodes is a real valued number, and the output is a non-linear function (see Section \ref{subsec:activation_function}) of the sum of its inputs.
 Figure \ref{fig:neural_net} shows a simple neural network with 2 layers.
 
 \begin{figure}[hbtp!]
@@ -42,7 +42,7 @@ The output layer $\bm{y}$ is given by:
     \label{eq:output_layer}
 \end{equation}
 
-Where $g$ is a non-linear activation function , $\bm{W_1}, \bm{W_2}$ are weight matrices and $\bm{b_1}, \bm{b_2}$ are bias vectors.
+Where $g$ is a non-linear activation function (see Section \ref{subsec:activation_function}) , $\bm{W_1}, \bm{W_2}$ are weight matrices and $\bm{b_1}, \bm{b_2}$ are bias vectors.
 Thus each node is non-linear function of the sum of its inputs, as mentioned earlier.
 
 A way of evaluating the neural network is now needed.
@@ -55,8 +55,16 @@ The MSE loss function over the training set $\mathbb{X}$ is defined as:
 
 Where $\bm{\theta}$ represents all learnable parameters $\bm{W_1}, \bm{W_2}, \bm{b_1}, \bm{b_2}$.
 Now $J(\bm{\theta})$ must be minimised with respect to $\bm{W_1}, \bm{W_2}, \bm{b_1}, \bm{b_2}$.
+In a real life example, the model will have many layers and potentially billions of parameters.
+This makes finding a global minimum in the weight space impossible and gradient descent methods must be used (see Section \ref{subsec:gradient_descent}).
 
-% TODO discuss activation functions
+\subsection{Activation Functions}\label{subsec:activation_function}
+
+Activation functions can be linear or non-linear.
+However, a deep neural network that uses only linear activations is equivalent to a single layer network, and is therefore unable to approximate the complex functions we require.
+There are many different non-linear activation functions used by researchers including ReLU \cite{Jarrett_Kavukcuoglu_Lecun}, tanh \cite{LeCun_Bottou_Orr_Muller_1998}, Sigmoid \cite{Han_Moraga_1995}, SWISH \cite{Ramachandran_Zoph_Le_2017} and other variations.
+More recently, work has been done to automatically learn different combinations of base activation functions \cite{Manessi_Rozza_2018}.
+
 \begin{figure}[hbtp!]
     \centering
     \includegraphics[width=0.45\textwidth]{./img/ReLU.png}
@@ -65,6 +73,8 @@ Now $J(\bm{\theta})$ must be minimised with respect to $\bm{W_1}, \bm{W_2}, \bm{
     \label{fig:ReLU_tanh}
 \end{figure}
 
+\subsection{Gradient Descent Methods}\label{subsec:gradient_descent}
+Recent development in this area are discussed in Section \ref{subsec:training}
 
 
 \section{Problem Description}\label{sec:problem_description_int}
