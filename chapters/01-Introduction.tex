@@ -56,7 +56,7 @@ The MSE loss function over the training set $\mathbb{X}$ is defined as:
 Where $\bm{\theta}$ represents all learnable parameters $\bm{W_1}, \bm{W_2}, \bm{b_1}, \bm{b_2}$.
 Now $J(\bm{\theta})$ must be minimised with respect to $\bm{W_1}, \bm{W_2}, \bm{b_1}, \bm{b_2}$.
 In a real life example, the model will have many layers and potentially billions of parameters.
-This makes finding a global minimum in the weight space impossible and gradient descent methods must be used (see Section \ref{subsec:gradient_descent}).
+This makes finding a global minimum in the weight space impossible and gradient descent methods must be used.
 
 \subsection{Activation Functions}\label{subsec:activation_function}
 
@@ -73,13 +73,14 @@ More recently, work has been done to automatically learn different combinations 
     \label{fig:ReLU_tanh}
 \end{figure}
 
-\subsection{Gradient Descent Methods}\label{subsec:gradient_descent}
-Recent development in this area are discussed in Section \ref{subsec:training}
-
 
 \section{Problem Description}\label{sec:problem_description_int}
-%TODO introduction to deep learning in healthcare
-Detecting cancers in medical images is an important task in modern health care.
+
+Deep learning has an important role to play in modern health care due to the large amounts of data it produces.
+It has actually been suggested that genomics alone will either equal or surpass other data intensive fields within the next decade \cite{Stephens_Lee_Faghri_Campbell_Zhai_Efron_Iyer_Schatz_Sinha_Robinson_2015}.
+The analysis of natural images is particularly relevant due to the high number of scans that are performed regularly.
+Many different tasks can be performed on natural images including classification, localisation, segmentation, noise reduction and feature extraction.
+This report will focus on segmentation of PET Scans.
 
 \subsection{PET Scans}\label{subsec:pet_scan_int}
 Positron Emission Tomography (PET) scans are used to produce 3 Dimensional images of the human body and are often combined with CT scans (called PET-CT) or MRI scans (PET-MRI) in order to increase the level of detail.
@@ -94,9 +95,39 @@ The procedure is as follows:
     \item A computer then produces a 3D image in which hotspots indicate a large amount of tracer accumulation and therefore a high level of metabolic activity.
 \end{itemize}
 
-% TODO include some example pet scan images
+Figures \ref{fig:positive} and \ref{fig:negative} show a selection of slices from PET scans with and without cancer respectively.
+A slice is a 2D crossection taken from the 3D scan.
+
+\begin{figure}[hbtp!]
+    \centering
+    \includegraphics[width=\textwidth]{./img/positive.png}
+    \caption{PET Scan slices that do contain Cancer}
+    \label{fig:positive}
+\end{figure}
+
+\begin{figure}[hbtp!]
+    \centering
+    \includegraphics[width=\textwidth]{./img/negative.png}
+    \caption{PET Scan slices that do not contain Cancer}
+    \label{fig:negative}
+\end{figure}
+
 
 \subsection{Current Data}\label{subsec:current_data_intro}
+
+The data that has been obtained consists of approximately 400 PET scans of patients who all have esophageal cancer \cite{Enzinger_Mayer_2003}.
+The aim is to perform segmentation of the scans to highlight the cancers, however the data is only partially labelled.
+In Figure \ref{fig:ground_truth} PET scan slices that contain cancer are shown (similar to Figure \ref{fig:positive}).
+In addition, a ground truth area has been highlighted.
+This area was selected by an expert such that it definitely contains all the cancer from the scan.
+It is important to note that not all of this area is cancerous; it can be seen from the scans that often only a small portion of the highlighted area is actually a cancer.
+
+\begin{figure}[hbtp!]
+    \centering
+    \includegraphics[width=\textwidth]{./img/ground_truth.png}
+    \caption{PET Scan slices with ground truth highlighted}
+    \label{fig:ground_truth}
+\end{figure}
 
 % %TODO explain The Data
 % %TODO explain Ground Truth and what we hope to achieve
