@@ -4,9 +4,9 @@
 
 Many extensive literature reviews and surveys have been written on the subject of deep learning.
 In 1987, Lippmann reviewed 6 of the most influential Neural Networks of the era \cite{Lippmann_1987}.
+In 2001 a review of over 200 applications of neural networks in image processing was published, ranging from preprocessing and feature extraction to segmentation and object recognition \cite{Egmont-Petersen_de_Ridder_Handels_2002}.
 More recently, an extensive Survey on Deep Learning in Medical Image Analysis was published \cite{Litjens_Kooi_Bejnordi_Setio_Ciompi_Ghafoorian_van_der_Laak_van_Ginneken_Sanchez_2017}.
-In this, the use of deep learning for image classification, object detection and segmentation are all reviewed.
-Also overviews of anatomical areas are provided, including neuro, retinal, pulmonary, digital pathology, breast, cardiac, abdominal and musculoskeletal.
+
 
 \section{Deep Learning}\label{sec:deep_learning_lit}
 
@@ -157,10 +157,10 @@ It can be seen that whilst SGD performs better on the training set, SWA is able 
 \end{figure}
 
 
-% TODO Capsule
-In late 2017, Hinton outlined a method for training capsule based methods.
-This is something he'd been thinking about for years.
-It learns pose representations of objects. \cite{Hinton_Sabour_Frosst_2018, Sabour_Frosst_Hinton_2017}
+% % TODO Capsule
+% In late 2017, Hinton outlined a method for training capsule based methods.
+% This is something he'd been thinking about for years.
+% It learns pose representations of objects. \cite{Hinton_Sabour_Frosst_2018, Sabour_Frosst_Hinton_2017}
 
 
 
@@ -168,11 +168,56 @@ It learns pose representations of objects. \cite{Hinton_Sabour_Frosst_2018, Sabo
 
 \section{Deep Learning in Medicine}\label{deep_learning_medic_lit}
 % TODO section on deep learning in medicine
-U-Net \cite{Ronneberger_Fischer_Brox_2015}
-3D U Net \cite{Cicek_Abdulkadir_Lienkamp_Brox_Ronneberger_2016}
 
-Cancer metastases \cite{Liu_Gadepalli_Norouzi_Dahl_Kohlberger_Boyko_Venugopalan_Timofeev_Nelson_Corrado_et_al_2017}
+In \cite{Ching_Himmelstein_Beaulieu-Jones_Kalinin_Do_Way_Ferrero_Agapow_Zietz_Hoffman_et_al_2018} a comprehensive overview of the opportunities and obstacles for deep learning in biology and medicine is given.
+Ching et al. discuss the many different areas where deep learning could be utilised.
+This includes:
 
-Dermatologist level skin cancer \cite{Esteva_Kuprel_Novoa_Ko_Swetter_Blau_Thrun_2017}
+\begin{itemize}
+    \item Disease/patient categorisation eg. classifying breast cancer
+    \item Biological study eg. gene and protein behaviour prediction
+    \item Treatment of patients eg. predicting drug targets and responses
+\end{itemize}
 
-TernausNet (pretrained weights as encoder part of unet) \cite{Iglovikov_Shvets_2018}
+They also cover some of the challenges facing deep learning:
+
+\begin{itemize}
+    \item Generating ground truth can expensive
+    \item Data sharing is hampered by standardisation and privacy considerations
+    \item Discrimination and `right to an explanation' laws
+\end{itemize}
+
+\subsection{Deep Learning in Medical Image Analysis}\label{deep_learning_medical_image}
+
+Deep learning algorithms and particularly convolutional networks have become an increasingly popular choice for medical image analysis.
+In \cite{Litjens_Kooi_Bejnordi_Setio_Ciompi_Ghafoorian_van_der_Laak_van_Ginneken_Sanchez_2017}, over 300 contributions to this field are summarised.
+The use of deep learning for image classification, object detection and segmentation are all reviewed.
+Also overviews of anatomical areas are provided, including neuro, retinal, pulmonary, digital pathology, breast, cardiac, abdominal and musculoskeletal.
+
+One of the main challenges for deep learning when applied to medical images is the absence of large sets of labelled training data.
+In \cite{Ronneberger_Fischer_Brox_2015}, Ronneberger introduces the U-Net architecture (see Figure \ref{fig:unet}) which is comprised of a contracting path, a symmetric expanding path and skip connections between them.
+
+\begin{figure}[hbtp!]
+    \centering
+    \includegraphics[width=\textwidth]{./img/u-net-architecture.png}
+    \caption{U-net architecture. Blue boxes denote multi-channel feature maps and the number of channels is denoted on top of the box. \cite{Ronneberger_Fischer_Brox_2015}}
+    \label{fig:unet}
+\end{figure}
+
+This method won several competitions including the ISBI challenge for segmentation of neuronal structures and the ISBI cell tracking challenge.
+These competitions provided only 30 and 35 training images respectively.
+The idea of U-Nets was taken further in \cite{Cicek_Abdulkadir_Lienkamp_Brox_Ronneberger_2016} where it was generalised to 3D images and used for segmentation of kidneys.
+In \cite{Iglovikov_Shvets_2018}, Iglovikov and Shvets show how the use of a pre-trained encoder in a U-Net architecture can improve performance.
+However, this was not applied to a medical image scenario.
+
+There have been many cases of neural networks equaling the success of expert doctors in image analysis.
+Some notable examples are \cite{Liu_Gadepalli_Norouzi_Dahl_Kohlberger_Boyko_Venugopalan_Timofeev_Nelson_Corrado_et_al_2017, Esteva_Kuprel_Novoa_Ko_Swetter_Blau_Thrun_2017}.
+In \cite{Liu_Gadepalli_Norouzi_Dahl_Kohlberger_Boyko_Venugopalan_Timofeev_Nelson_Corrado_et_al_2017} a framework to aid breast cancer metastasis detection is given.
+They used an Inception architecture \cite{Russakovsky_Deng_Su_Krause_Satheesh_Ma_Huang_Karpathy_Khosla_Bernstein_et_al_2015} which performed so well that it found two slides in the Camelyon16 \cite{Camelyon16} training set that were labelled incorrectly.
+An Inception architecture was also used in  \cite{Esteva_Kuprel_Novoa_Ko_Swetter_Blau_Thrun_2017} to produce dermatologist level classification skin cancer.
+In this case the CNN had been pretrained on 1.28 million images.
+
+% \subsection{Adversarial Networks}
+
+% The subject of adversarial Networks is very popular within the deep learning community.
+% Adversarial Nets \cite{Finlayson_Chung_Kohane_Beam_2018}
