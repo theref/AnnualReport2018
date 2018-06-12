@@ -24,8 +24,8 @@ A cycle has a fixed length and the learning rate varies between two sensible bou
 This helps because if the optimisation gets stuck on a saddle plateau, increasing the learning rate will traverse the plateau quickly.
 
 In Figure \ref{fig:triangular_cyclical_learning_rate} two methods for cyclical learning rates are shown.
-Leslie N. Smith propesed these in \cite{Smith_2015}.
-On the left plot min and max learning rate are kept the same, wheras on the right the difference is cut in half after each cycle.
+Leslie N. Smith proposed these in \cite{Smith_2015}.
+On the left plot min and max learning rate are kept the same, whereas on the right the difference is cut in half after each cycle.
 
 
 \begin{figure}[hbtp!]
@@ -120,7 +120,7 @@ Notice that in each panel a direct linear path between each optima would incur h
 \end{figure}
 
 FGE shows improvement on Snapshot Ensembling and due to the shorter learning rate cycle it is also faster to train.
-However, to obtain the superior performance of FGE or Snapshort Ensembling many different models must be stored.
+However, to obtain the superior performance of FGE or Snapshot Ensembling many different models must be stored.
 Also, predictions must be made by each model which are then averaged together, implying increased computations at test time.
 In \cite{Izmailov_Podoprikhin_Garipov_Vetrov_Wilson_2018}, a training method is outlined that avoids this issue whilst maintaining comparable performance.
 
@@ -210,12 +210,12 @@ The idea of U-Nets was taken further in \cite{Cicek_Abdulkadir_Lienkamp_Brox_Ron
 In \cite{Iglovikov_Shvets_2018}, Iglovikov and Shvets show how the use of a pre-trained encoder in a U-Net architecture can improve performance.
 However, this was not applied to a medical image scenario.
 
-There have been many cases of neural networks equaling the success of expert doctors in image analysis.
+There have been many cases of neural networks equalling the success of expert doctors in image analysis.
 Some notable examples are \cite{Liu_Gadepalli_Norouzi_Dahl_Kohlberger_Boyko_Venugopalan_Timofeev_Nelson_Corrado_et_al_2017, Esteva_Kuprel_Novoa_Ko_Swetter_Blau_Thrun_2017}.
 In \cite{Liu_Gadepalli_Norouzi_Dahl_Kohlberger_Boyko_Venugopalan_Timofeev_Nelson_Corrado_et_al_2017} a framework to aid breast cancer metastasis detection is given.
 They used an Inception architecture \cite{Russakovsky_Deng_Su_Krause_Satheesh_Ma_Huang_Karpathy_Khosla_Bernstein_et_al_2015} which performed so well that it found two slides in the Camelyon16 \cite{Camelyon16} training set that were labelled incorrectly.
 An Inception architecture was also used in  \cite{Esteva_Kuprel_Novoa_Ko_Swetter_Blau_Thrun_2017} to produce dermatologist level classification skin cancer.
-In this case the CNN had been pretrained on 1.28 million images.
+In this case the CNN had been pre-trained on 1.28 million images.
 
 % \subsection{Adversarial Networks}
 
